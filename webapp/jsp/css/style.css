@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+body{
+	background-image: url("../image/1.jpg");
+	width:auto;
+}
+
+h1{
+	text-align:center;
+}
+
+label,input{
+    color:#f0afc0 ;
+    font-size: 20px;
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+}
+
+table{
+	margin:300px auto 100px;
+}
+
+button{
+	color:green;
+	margin-top:2px;
+	padding:5px;
+}
+button:hover{
+	color:blue;
+}
+
+.login{ 
+	background-image: url("../image/1.jpg");
+    width: 350px;
+    overflow: hidden;
+    height: 15vh;
+    padding: 10px;
+    border: 2px solid rgb(155, 65, 132);
+    background-color:#f0afc0 ;
+    margin:200px auto 100px;
+    text-align: center;
+}
+
+.login button{
+	margin-top:8%;
+}
