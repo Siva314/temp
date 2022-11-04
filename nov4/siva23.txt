@@ -1,0 +1,149 @@
+-- MySQL dump 10.13  Distrib 8.0.30, for Linux (x86_64)
+--
+-- Host: localhost    Database: BankingApplication
+-- ------------------------------------------------------
+-- Server version	8.0.30-0ubuntu0.20.04.2
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `AccountInfo`
+--
+
+DROP TABLE IF EXISTS `AccountInfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `AccountInfo` (
+  `account_number` int NOT NULL AUTO_INCREMENT,
+  `account_type` varchar(20) NOT NULL,
+  `userid` int NOT NULL,
+  `ifsc_code` varchar(20) NOT NULL,
+  `branch_name` varchar(30) NOT NULL,
+  `account_balance` double NOT NULL,
+  `account_status` varchar(20) NOT NULL,
+  PRIMARY KEY (`account_number`),
+  KEY `userid` (`userid`),
+  CONSTRAINT `AccountInfo_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `CustomerInfo` (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2200008 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AccountInfo`
+--
+
+LOCK TABLES `AccountInfo` WRITE;
+/*!40000 ALTER TABLE `AccountInfo` DISABLE KEYS */;
+INSERT INTO `AccountInfo` VALUES (2200000,'current',2,'SIVA000314','chelliyampatti',1539.5,'active'),(2200001,'savings',2,'SIVA000314','chelliyampatti',1763,'active'),(2200002,'savings',3,'SIVA000314','chelliyampatti',1000,'active'),(2200003,'savings',4,'SIVA000314','chelliyampatti',1048,'active'),(2200004,'current',3,'SIVA000314','chelliyampatti',1322,'active'),(2200005,'current',4,'SIVA000314','chelliyampatti',4475,'active'),(2200006,'current',5,'SIVA000314','chelliyampatti',3013,'active'),(2200007,'current',6,'SIVA000314','chelliyampatti',1989,'active');
+/*!40000 ALTER TABLE `AccountInfo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CustomerInfo`
+--
+
+DROP TABLE IF EXISTS `CustomerInfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `CustomerInfo` (
+  `userid` int NOT NULL,
+  `aadhaar` bigint NOT NULL,
+  `pancard` varchar(10) NOT NULL,
+  `user_status` varchar(20) NOT NULL,
+  PRIMARY KEY (`userid`),
+  CONSTRAINT `CustomerInfo_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `UserInfo` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CustomerInfo`
+--
+
+LOCK TABLES `CustomerInfo` WRITE;
+/*!40000 ALTER TABLE `CustomerInfo` DISABLE KEYS */;
+INSERT INTO `CustomerInfo` VALUES (2,895665452458,'SIVA98465O','active'),(3,968956478956,'SODF65142E','active'),(4,962316478956,'SOMK98142E','active'),(5,962316471201,'ASMK98142E','active'),(6,695814231201,'ASMK45842E','active');
+/*!40000 ALTER TABLE `CustomerInfo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TransactionInfo`
+--
+
+DROP TABLE IF EXISTS `TransactionInfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `TransactionInfo` (
+  `transactionid` bigint NOT NULL AUTO_INCREMENT,
+  `userid` int NOT NULL,
+  `account_number` bigint NOT NULL,
+  `transaction_date` bigint NOT NULL,
+  `sender_account_number` bigint NOT NULL,
+  `receiver_account_number` bigint NOT NULL,
+  `transaction_amount` double NOT NULL,
+  `current_balance` double NOT NULL,
+  `transaction_type` varchar(20) NOT NULL,
+  PRIMARY KEY (`transactionid`),
+  KEY `userid` (`userid`),
+  KEY `account_number` (`account_number`),
+  CONSTRAINT `TransactionInfo_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `CustomerInfo` (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TransactionInfo`
+--
+
+LOCK TABLES `TransactionInfo` WRITE;
+/*!40000 ALTER TABLE `TransactionInfo` DISABLE KEYS */;
+INSERT INTO `TransactionInfo` VALUES (46,2,2200001,1666331122886,2200001,2200004,15,1250,'transfer'),(47,3,2200004,1666331122976,2200001,2200004,15,1310,'transfer'),(48,2,2200001,1666331135589,2200001,2200004,12,1238,'transfer'),(49,3,2200004,1666331135688,2200001,2200004,12,1322,'transfer'),(50,2,2200001,1666331179953,2200001,2200003,12,1226,'transfer'),(51,4,2200003,1666331180063,2200001,2200003,12,1032,'transfer'),(52,2,2200001,1666331192197,2200001,2200003,16,1210,'transfer'),(53,4,2200003,1666331192302,2200001,2200003,16,1048,'transfer'),(54,2,2200001,1666331235319,2200001,2200001,500,1710,'deposit'),(55,4,2200001,1666331359413,2200005,2200001,500,4500,'transfer'),(56,2,2200001,1666331359522,2200005,2200001,500,2210,'transfer'),(57,4,2200001,1666407339713,2200005,2200001,5,4495,'transfer'),(58,2,2200001,1666407339845,2200005,2200001,5,2215,'transfer'),(59,4,2200001,1666407354973,2200005,2200001,5,4490,'transfer'),(60,2,2200001,1666407355101,2200005,2200001,5,2220,'transfer'),(61,4,2200001,1666407364266,2200005,2200001,5,4485,'transfer'),(62,2,2200001,1666407364401,2200005,2200001,5,2225,'transfer'),(63,4,2200001,1666407371154,2200005,2200001,5,4480,'transfer'),(64,2,2200001,1666407371271,2200005,2200001,5,2230,'transfer'),(65,4,2200001,1666407377257,2200005,2200001,5,4475,'transfer'),(66,2,2200001,1666407377429,2200005,2200001,5,2235,'transfer'),(67,4,2200001,1666457373393,2200005,2200001,5,4470,'transfer'),(68,2,2200001,1666457373393,2200005,2200001,5,2240,'transfer'),(69,4,2200001,1666502633398,2200005,2200001,5,4465,'transfer'),(70,2,2200001,1666502633398,2200005,2200001,5,2245,'transfer'),(71,4,2200001,1666502689009,2200005,2200001,5,4460,'transfer'),(72,2,2200001,1666502689009,2200005,2200001,5,2250,'transfer'),(73,4,2200001,1666536419173,2200005,2200001,5,4455,'transfer'),(74,4,2200001,1666537362896,2200005,2200001,5,4450,'transfer'),(75,4,2200001,1666537980712,2200005,2200001,5,4445,'transfer'),(76,2,2200001,1666537980712,2200005,2200001,5,2265,'transfer'),(77,2,2200001,1666545138373,2200001,2200001,2,2263,'withdraw'),(78,2,2200000,1666589002488,2200000,2200005,30,1919.5,'transfer'),(79,4,2200005,1666589002488,2200000,2200005,30,4475,'transfer'),(80,2,2200000,1666680491842,2200000,2200006,10,1909.5,'transfer'),(81,5,2200006,1666680491842,2200000,2200006,10,3010,'transfer'),(82,2,2200001,1666680555492,2200001,2200001,1,2262,'withdraw'),(83,6,2200007,1667386799004,2200007,0,2,1998,'withdraw'),(84,6,2200007,1667386888591,2200007,0,3,1995,'withdraw'),(85,6,2200007,1667387127591,0,2200007,2,1997,'deposit'),(86,6,2200007,1667387998876,2200007,0,1,1996,'withdraw'),(87,6,2200007,1667388004030,0,2200007,2,1998,'deposit'),(88,6,2200007,1667388465486,2200007,2200000,3,1995,'transfer'),(89,2,2200000,1667388465486,2200007,2200000,3,1912.5,'transfer'),(90,6,2200007,1667388529123,2200007,2200000,3,1992,'transfer'),(91,2,2200000,1667388529123,2200007,2200000,3,1915.5,'transfer'),(92,6,2200007,1667388583039,2200007,2200006,3,1989,'transfer'),(93,5,2200006,1667388583039,2200007,2200006,3,3013,'transfer'),(94,2,2200000,1667446198368,0,2200000,100,2015.5,'deposit'),(95,2,2200000,1667468302716,0,2200000,-500,1515.5,'deposit'),(96,2,2200001,1667468319272,0,2200001,-500,1762,'deposit'),(97,2,2200001,1667468665767,0,2200001,-78,1684,'deposit'),(98,2,2200001,1667545142193,2200001,2200001,23,1661,'transfer'),(99,2,2200001,1667545142193,2200001,2200001,23,1707,'transfer'),(100,2,2200000,1667545425010,2200000,2200000,12,1503.5,'transfer'),(101,2,2200000,1667545425010,2200000,2200000,12,1527.5,'transfer'),(102,2,2200000,1667545484004,2200000,2200000,12,1515.5,'transfer'),(103,2,2200000,1667545484004,2200000,2200000,12,1539.5,'transfer'),(104,2,2200001,1667545520652,2200001,2200001,56,1651,'transfer'),(105,2,2200001,1667545520652,2200001,2200001,56,1763,'transfer');
+/*!40000 ALTER TABLE `TransactionInfo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `UserInfo`
+--
+
+DROP TABLE IF EXISTS `UserInfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `UserInfo` (
+  `userid` int NOT NULL AUTO_INCREMENT,
+  `password` varchar(40) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `mobile` bigint NOT NULL,
+  `dateofBirth` bigint NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `UserInfo`
+--
+
+LOCK TABLES `UserInfo` WRITE;
+/*!40000 ALTER TABLE `UserInfo` DISABLE KEYS */;
+INSERT INTO `UserInfo` VALUES (1,'siva@314','siva',8525070419,986879100000,'374 selva nagar chelliyampatti','admin','sivavel314@gmail.com'),(2,'user@123','siva2',8956456546,986879100000,'hdfhgjh jfdlfa','customer','siva@gmail.com'),(3,'user2@123','customer2',9856556556,986879100000,'hdfhgjh jfdlfa','customer','customer2.k@gmail.com'),(4,'user3@123','customer3',89556457465464,986879100000,'hdfhgjh jfdlfa','customer','customer3@gmail.com'),(5,'user4@123','customer4',8923155545,986879100000,'hdfhgjh jfdlfa','customer','customer4@gmail.com'),(6,'user5@123','customer5',8956689545,986879100000,'hdfhgjh jfdlfa','customer','custom-er_5@gmail.com'),(7,'user6@123','customer',7869543873,9186879100000,'hdfhgjh jfdlfa','customer','customer6@gmail.com'),(8,'user@123','vel',6856555566,986879100000,'154 tyttrt serrrttrtt hgweryy','customer','vel314@gmail.com');
+/*!40000 ALTER TABLE `UserInfo` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-11-04 18:04:51
