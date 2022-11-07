@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+body{
+	background: #aacac4;
+background: -webkit-linear-gradient(59deg, #aacac4 0%, #e3a0ca 100%);
+background: linear-gradient(59deg, #aacac4 0%, #e3a0ca 100%);
+	background-repeat:no-repeat;
+    background-attachment: fixed;
+	background-size:100% 100%;
+}
+
+h1,h2{
+	text-align:center;
+	color:gold;
+}
+
+label,input,textarea{
+    color:navy ;
+    font-size: 20px;
+    display: inline-block;
+    width: 250px;
+    text-align: center;
+}
+select{
+    color:#f0afc0 ;
+    font-size: 20px;
+    display: inline-block;
+    width: 258px;
+    height:40px;
+    text-align: center;
+}
+
+label{
+	color:black;
+	text-align:center;
+}
+
+.login{ 
+	background-color:#ffffff;
+    width:350px;
+    height:225px;
+    overflow: hidden;
+    padding: 20px;
+    margin:auto;
+    text-align: center;
+    border-radius:75px;
+}
+
+.login button{
+	margin-top:8%;
+	border-radius:20px;
+	width:250px;
+	height:40px;
+	font-size:20px;
+	background-color: #4CAF50;
+    color: white;	
+}
+
+
+
+table{
+	margin:30px auto 100px;
+	width:85%;
+	border-collapse:collapse;
+	text-align:center;
+}
+tr:nth-child(even) {
+  background: grey;
+}
+th{
+	padding:10px;
+	color:white;
+	background-color:black;
+	text-transform:uppercase;
+}
+tr{
+	padding:8px;
+}
+td{
+	color:navy;
+	font-size:20px;
+}
+
+.menu button {
+  background-color: #4CAF50; /* Green */
+  border: 2px solid black;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  width:100%;
+}
+
+.menu button:hover{
+	color:red;
+}
+.submitbutton{
+	text-align:center;
+	width:100%;
+}
+.submitbutton button{
+	border-radius:20px;
+	width:250px;
+	height:40px;
+	font-size:20px;
+	background-color: #4CAF50;
+    color: white;
+}
+
+.showbutton{
+	border-radius:20px;
+	width:250px;
+	height:40px;
+	font-size:20px;
+	background-color: #4CAF50;
+    color: white;
+}
+
+.submitbutton button:hover{
+color:red;
+}
+
+.logout{
+	margin-top:0;
+	margin-left:0;
+	width:100%;
+	background-color:#8600ff;
+}
+.logout button{
+	float:right;
+	width:250px;
+	height:40px;
+	font-size:20px;	
+	border:none;
+	background-color:#8600ff;
+}
+
+.align{
+	margin-left:40%;
+	text-align:center;
+	display:flex;
+	height:250px;
+	justify-content:space-between;
+	flex-direction:column;
+	width:20%;
+}
+iframe{
+	border:none;
+}
