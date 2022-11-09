@@ -1,0 +1,288 @@
+@charset "UTF-8";
+
+body {
+	background-color: #c8d8e4;
+}
+.main h1{
+	text-align:center;
+}
+
+h1, h2 {
+	padding-left: 10px; text-align : left;
+	color: black;
+	text-align: left;
+}
+
+p {
+	font-size: 20px;
+	color: red;
+}
+
+input[readonly] {
+	cursor: not-allowed;
+}
+
+.main label, .main input, .main textarea ,.main select{
+	color: navy;
+	font-size: 25px;
+	display: inline-block;
+	width: 400px;
+	text-align: center;
+}
+
+.main select{
+	font-size:20px;
+	width:409px;
+	padding:10px;
+}
+
+.main label {
+	color: black;
+	text-align: left;
+	width: 300px;
+}
+
+.login {
+	background-color: #ffffff;
+	width: 400px;
+	height: 300px;
+	overflow: hidden;
+	padding: 30px;
+	margin: auto;
+	border-radius: 75px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.login label {
+	font-size: 30px;
+	text-align: center;
+	margin-bottom: .6em;
+}
+
+.login button {
+	border-radius: 20px;
+	width: 300px;
+	height: 45px;
+	font-size: 20px;
+	background-color: #8600ff;
+	color: white;
+}
+
+.login input {
+	font-size: 30px;
+	color: blue;
+	margin-bottom: .6em;
+	height: 40px;
+	width: 300px;
+	box-sizing: border-box;
+	border: none;
+	border-bottom: 2px solid red;
+}
+
+table {
+	margin-left:6%;
+	margin-top: 1em;
+	width: 88%;
+	border-collapse: collapse;
+	border-spacing: 3px;
+	text-align: center;
+	border: 1px solid black;
+	justify-content: space-evenly;
+	text-align: center;
+	background-color: white;
+	overflow: scroll;
+}
+
+tr:nth-child(odd) {
+	background: #808080;
+}
+
+th {
+	padding: 10px;
+	color: white;
+	background-color: rgb(7, 11, 1);
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+td {
+	padding:10px;
+	color: #000000;
+	font-size: 24px;
+}
+
+.menu button {
+	background-color: transparent;
+	border: none;
+	color: #0000ff;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 30px;
+	width: 100%;
+	color: white;
+	border-radius: 20px;
+}
+
+.menu button:hover {
+	color: #141a3a;
+	background-color: white;
+	width: 100%;
+}
+
+.menuDrop {
+	position: inherit;
+	display: inherit;
+}
+
+.menuDropField {
+	display: none;
+	position: inherit;
+}
+
+.menuDropField button {
+	font-size: 30px;
+	text-align: center;
+	width: 100%;
+	height: 60px;
+	background-color: inherit;
+}
+
+.menuDrop:hover .menuDropField {
+	display: block;
+}
+
+.submitbutton {
+	text-align: center;
+	width: 100%;
+}
+
+.submitbutton button {
+	border-radius: 20px;
+	width: 250px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #8600ff;
+	color: white;
+}
+
+.showbutton {
+	border-radius: 20px;
+	width: 250px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #8600ff;
+	color: white;
+}
+
+.submitbutton button:hover {
+	color: red;
+}
+
+.align {
+	margin-left: 20%;
+	margin-top: 12%; text-align : center;
+	height: 250px;
+	justify-content: space-between;
+	flex-direction: column;
+	width: 55%;
+	text-align: center;
+}
+
+.align div {
+	padding-top: 5px;
+}
+
+iframe {
+	border: none;
+	height: 100vh;
+}
+
+.sameline {
+	display: flex;
+}
+
+.right {
+	float: right;
+}
+
+.logout {
+	overflow: hidden;
+	background-color: #9DC88D;
+}
+
+.logout h1 {
+	float: left;
+	margin-left: 30px;
+}
+
+.headerMenu {
+	padding: 15px;
+	margin-right: 10px;
+	float : right;
+	margin-top: 8px;
+	overflow: hidden;
+	float: right;
+}
+
+.dropField {
+	right: 2%;
+	display: none;
+	position: absolute;
+	min-width: 85px;
+	z-index: 1;
+	display: none;
+}
+
+.dropField button {
+	border: none;
+	font-size: 20px;
+	text-align: left;
+	width: 100%;
+	height: 60px;
+	background-color: #2b6777;
+	color: navy;
+	font-size: 20px;
+}
+
+.dropField button:hover {
+	color: blue;
+	background-color: white;
+	width: 100%;
+}
+
+.headerMenu:hover .dropField {
+	display: block;
+}
+
+.verticalAlign {
+	justify-content: space-evenly;
+}
+
+.verticalAlign button {
+	margin-bottom: 40px;
+}
+
+.verticalAlign label {
+	margin-right: 2px;
+}
+
+.transaction {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto;
+	grid-template-rows: 50px;
+	grid-gap: 10px;
+}
+
+.transaction label, .transaction input, .transaction select,
+	.transaction button {
+	font-size: 26px;
+	border-radius: 26px;
+	text-align: center;
+}
+
+.transaction button {
+	background-color: #8600ff;
+	color: white;
+}
