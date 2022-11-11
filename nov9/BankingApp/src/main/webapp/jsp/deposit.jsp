@@ -9,22 +9,22 @@
 <body class="main">
 	<h1>Deposit</h1>
 	<h2>${message}</h2>
-	<div class="align">
+	<div class="card">
 		<form action="<%=request.getContextPath()%>/ControllerServlet"
 			method="post">
 			<div>
-				<label>Account Number</label> <select name="accountNumber">
+				<label>To Account<sup>*</sup></label> <select name="accountNumber">
 					<c:forEach var="account" items="${accountInfo }">
 						<option value="${account.key }">${account.key }</option>
 					</c:forEach>
 				</select>
 			</div>
 			<div>
-				<label>Enter the Amount</label> <input type="number" name="amount" min="1" max="10000" required>
+				<label>Amount<sup>*</sup></label> <input type="number" name="amount" min="1" max="10000" required>
 			</div>
 			<br>
-			<div class="submitbutton">
-				<button name="action" value="makedeposit">submit</button>
+			<div>
+				<button name="action" value="makedeposit">Submit</button>
 			</div>
 		</form>
 	</div>

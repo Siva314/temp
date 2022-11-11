@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/style.css"></link>
 </head>
 <body>
-	<h1>welcome admin</h1>
+	<h1>Welcome Admin</h1>
 	<div>
 	
 	</div>

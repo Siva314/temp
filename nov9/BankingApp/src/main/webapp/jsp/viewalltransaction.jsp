@@ -20,7 +20,7 @@
 		<div>
 			<form action="<%=request.getContextPath()%>/ControllerServlet"
 				method="post">
-				<label>Id </label><input name="id" type="number"
+				<label>Id <sup>*</sup></label><input name="id" type="number"
 					value="${cid}" min="1" required>
 				<button name="action" value="showaccount">Show</button>
 			</form>

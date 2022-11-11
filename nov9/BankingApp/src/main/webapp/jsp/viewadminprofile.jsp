@@ -10,7 +10,7 @@
 <body class="main">
 	<h1>Profile</h1>
 	<h2 style="color: gold">${message}</h2>
-	<div class="align">
+	<div class="card">
 		<form action="<%=request.getContextPath()%>/ControllerServlet"
 			method="post">
 			<div>
@@ -40,7 +40,7 @@
 				</div>
 				<br>
 			</div>
-			<div class="submitbutton">
+			<div>
 				<button name="action" value="saveprofile">Save</button>
 			</div>
 		</form>

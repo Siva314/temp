@@ -9,22 +9,22 @@
 <body class="main">
 	<h1>Withdraw</h1>
 	<h2>${message}</h2>
-	<div class="align">
+	<div class="card">
 		<form action="<%=request.getContextPath()%>/ControllerServlet"
 			method="post">
 			<div>
-				<label>Account Number</label> <select name="accountNumber">
+				<label>Form Account<sup>*</sup></label> <select name="accountNumber">
 					<c:forEach var="account" items="${accountInfo }">
 						<option value="${account.key }">${account.key }</option>
 					</c:forEach>
 				</select>
 			</div>
 			<div>
-				<label>Enter the Amount</label> <input type="text" name="amount" required>
+				<label>Amount<sup>*</sup></label> <input type="text" name="amount" required>
 			</div>
 			<br>
-			<div class="submitbutton">
-				<button name="action" value="makewithdraw">submit</button>
+			<div>
+				<button name="action" value="makewithdraw">Submit</button>
 			</div>
 		</form>
 	</div>

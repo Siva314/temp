@@ -13,28 +13,33 @@
 }
 </style>
 </head>
-<body class="main">
+<body>
 	<h1>Transaction Details</h1>
 	<h2>${message}</h2>
 	<form action="<%=request.getContextPath()%>/ControllerServlet"
 		method="post">
-		<div class="sameline verticalAlign">
-			<div>
-				<label>Account number</label> <select name="accountNumber" required>
-					<c:forEach var="account" items="${accountInfo }">
-						<option value="${account.key }">${account.key }</option>
-					</c:forEach>
-				</select>
-			</div>
-			<div ><select name="days" required>
-					<option value="">Select days</option>
-					<option value="7">7</option>
-					<option value="15">15</option>
-				</select>
-			</div>
+		<div style="width:100%">
+			<div class="sameline">
+				<div>
+					<label>Account Number<sup>*</sup></label> 
+					</div>
+					<div>
+					<select name="accountNumber" required>
+						<c:forEach var="account" items="${accountInfo }">
+							<option value="${account.key }">${account.key }</option>
+						</c:forEach>
+					</select>
+				</div>
+				<div>
+					<select name="days" required>
+						<option value="">Select days</option>
+						<option value="7">7</option>
+						<option value="15">15</option>
+					</select>
+				</div>
 
-			<button name="action" value="showusertransaction" class="showbutton"
-				>Show</button>
+				<button name="action" value="showusertransaction">Show</button>
+			</div>
 		</div>
 	</form>
 	<div class="table ${visible }">

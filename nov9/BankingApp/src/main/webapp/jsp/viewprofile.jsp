@@ -10,7 +10,7 @@
 <body class="main">
 	<h1>Profile</h1>
 	<h2>${message}</h2>
-	<div class="align">
+	<div class="card">
 		<form action="<%=request.getContextPath()%>/ControllerServlet"
 			method="post">
 			<div>
@@ -26,11 +26,11 @@
 					readonly>
 			</div>
 			<div>
-				<label>Mobile </label><input type="tel" name="mobile"
+				<label>Mobile <sup>*</sup></label><input type="tel" name="mobile"
 					value="${customer.getMobile() }" maxlength="10">
 			</div>
 			<div>
-				<label>Email </label><input type="email" name="email"
+				<label>Email <sup>*</sup></label><input type="email" name="email"
 					value="${customer.getEmail() }">
 			</div>
 			<div>
@@ -46,7 +46,7 @@
 					value="${customer.getAadhaar() }" readonly>
 			</div>
 			<br>
-			<div class="submitbutton">
+			<div>
 				<button name="action" value="saveprofile">Save</button>
 			</div>
 		</form>

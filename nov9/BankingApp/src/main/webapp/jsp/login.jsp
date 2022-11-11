@@ -7,7 +7,7 @@
 	href="<%=request.getContextPath()%>/css/style.css"></link>
 </head>
 <body class="main">
-	<h1 style="margin-top: 15%">Central Bank of India</h1>
+	<h1 style="margin-top: 15%;margin-left:38%;">Central Bank of India</h1>
 	<div class=login>
 		<form action="<%=request.getContextPath()%>/ControllerServlet"
 			method="get">

@@ -9,10 +9,10 @@
 	href="<%=request.getContextPath()%>/css/style.css"></link>
 </head>
 <body>
-	
-	<h2 style= color:gold>${message}</h2>
+	<h1>All User Details</h1>
+	<h2>${message}</h2>
 	<div>
-		<table>
+		<table style="margin-top:8%;">
 			<tr>
 				<th>User id</th>
 				<th>Name</th>

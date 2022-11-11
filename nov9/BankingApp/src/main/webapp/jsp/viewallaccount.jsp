@@ -7,28 +7,29 @@
 <link rel="stylesheet" type="text/css" href="css/style.css"></link>
 </head>
 <body>
-	<h2 style= color:gold>${message}</h2>
+	<h1>All Account Details</h1>
+	<h2>${message}</h2>
 	<div>
-		<table>
+		<table style="margin-top:8%;">
 			<tr>
-				<th>User id</th>
+				<th>Id</th>
 				<th>Account Number</th>
-				<th>Account Type</th>
+				<th>Type</th>
 				<th>Ifsc code</th>
-				<th>Account Balance</th>
-				<th>Account Status</th>
+				<th>Balance</th>
+				<th>Status</th>
 			</tr>
 			<c:forEach var="accountList1" items="${allaccountdetails }">
-			<c:forEach var="accountList" items="${accountList1.value }">
-			<tr>
-				<td>${accountList.value.getUserId() }</td>
-					<td>${accountList.value.getAccountNumber() }</td>
-					<td>${accountList.value.getAccountType() }</td>
-					<td>${accountList.value.getIfscCode() }</td>
-					<td>${accountList.value.getAccountBalance() }</td>
-					<td>${accountList.value.getAccountStatus() }</td>
-			</tr>
-			</c:forEach>
+				<c:forEach var="accountList" items="${accountList1.value }">
+					<tr>
+						<td>${accountList.value.getUserId() }</td>
+						<td>${accountList.value.getAccountNumber() }</td>
+						<td>${accountList.value.getAccountType() }</td>
+						<td>${accountList.value.getIfscCode() }</td>
+						<td>${accountList.value.getAccountBalance() }</td>
+						<td>${accountList.value.getAccountStatus() }</td>
+					</tr>
+				</c:forEach>
 			</c:forEach>
 		</table>
 	</div>
