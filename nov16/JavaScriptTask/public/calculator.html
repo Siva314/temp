@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+<style type="text/css">
+body {
+	margin: 0px;
+	padding: 100px;
+}
+
+.calculator {
+	margin: 0px auto;
+	width: 600px;
+	height: 600px;
+	border: 2px solid black;
+	margin-top: 6%;
+}
+
+.resultBox {
+	padding: 10px 10px;
+	display: grid;
+	grid-template-columns: 88% 10%;
+	grid-template-rows: 12vh;
+}
+
+.resultBox input {
+	font-size: 30px;
+	width: 97%;
+	text-align: right;
+}
+
+.inputButton {
+	padding: 10px 10px;
+}
+
+.inputButton input {
+	padding: 0px 20px;
+	margin-right: 8px;
+	width: 23%;
+	height: 90px;
+	font-size: 25px;
+}
+
+.operatorElement:focus, .operatorElement:hover {
+	background-color: blue;
+}
+</style>
+</head>
+<body>
+	<div class="calculator">
+		<div class="resultBox">
+			<input type="text" id="result" disabled> <input type="button"
+				value="CL" onclick="clearAll()">
+		</div>
+		<div class="inputButton">
+			<input type="button" id="" value="7" onclick="display('7')">
+			<input type="button" id="" value="8" onclick="display('8')">
+			<input type="button" id="" value="9" onclick="display('9')">
+			<input type="button" class="operatorElement" value="/"
+				onclick="setOperation('/')">
+		</div>
+		<div class="inputButton">
+			<input type="button" id="" value="4" onclick="display('4')">
+			<input type="button" id="" value="5" onclick="display('5')">
+			<input type="button" id="" value="6" onclick="display('6')">
+			<input type="button" class="operatorElement" value="*"
+				onclick="setOperation('*')">
+		</div>
+		<div class="inputButton">
+			<input type="button" id="" value="1" onclick="display('1')">
+			<input type="button" id="" value="2" onclick="display('2')">
+			<input type="button" id="" value="3" onclick="display('3')">
+			<input type="button" class="operatorElement" value="-"
+				onclick="minus()">
+		</div>
+		<div class="inputButton">
+			<input type="button" id="" value="." onclick="display('.')">
+			<input type="button" id="" value="0" onclick="display('0')">
+			<input type="button" id="" value="=" onclick="calculate()"> <input
+				type="button" class="operatorElement" id="" value="+"
+				onclick="setOperation('+')">
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var operator = '';
+		var first = 0;
+		var second = 0;
+		var third = 0;
+		var resultField = document.getElementById('result');
+
+		function display(inputNumber) {
+			resultField.value += inputNumber;
+		}
+
+		function clearAll() {
+			resultField.value = "";
+		}
+
+		function minus() {
+			third = resultField.value;
+			if (third) {
+				first = third;
+				operator = "-";
+				clearAll();
+			} else {
+				display('-');
+			}
+		}
+
+		function setOperation(symbol) {
+			third = resultField.value;
+			if (third) {
+				first = third;
+				clearAll();
+			} else {
+				resultField.setAttribute("placeholder", "Enter number");
+			}
+			operator = symbol;
+		}
+
+		function calculate() {
+			second = resultField.value;
+			if (second) {
+				switch (operator) {
+				case ('-'): {
+					resultField.value = first - second;
+					clearValue();
+					break;
+				}
+				case ('+'): {
+					resultField.value = Number(first) + Number(second);
+					clearValue();
+					break;
+				}
+				case ('*'): {
+					resultField.value = first * second;
+					clearValue();
+					break;
+				}
+				case ('/'): {
+					if (first == 1 && second == 0) {
+						resultField.value = "Can't divide 1/0";
+					} else {
+						resultField.value = first / second;
+						clearValue();
+					}
+					break;
+				}
+				}
+			} else {
+				resultField.setAttribute("placeholder", "Enter number");
+			}
+		}
+
+		function clearValue() {
+			operator = '';
+			first = 0;
+			second = 0;
+			third = 0;
+		}
+	</script>
+</body>
+</html>
