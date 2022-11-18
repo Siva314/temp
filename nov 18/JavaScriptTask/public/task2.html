@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Task 2</title>
+
+<script type="text/javascript">
+	function createFields() {
+		const mainDiv = document.getElementsByClassName("main");
+		var number = document.getElementById('numberOfPairs').value;
+		for (let i = 0; i < number; i++) {
+			const container = document.createElement("div");
+			const input1 = document.createElement("input");
+			const input2 = document.createElement("input");
+
+			container.setAttribute("class", "main");
+			input1.setAttribute("placeholder", "Enter Parent name");
+			input1.setAttribute("class", "parents");
+			input1.setAttribute("required", "required");
+			input2.setAttribute("placeholder", "Enter child name");
+			input2.setAttribute("class", "childrens");
+			input2.setAttribute("required", "required");
+
+			container.append(input1);
+			container.append(input2);
+
+			mainDiv[0].append(container);
+		}
+		const button = document.createElement("button");
+		button.setAttribute("onclick", "addToObject()");
+		button.innerHTML = "Add";
+		button.setAttribute("class", "button");
+		mainDiv[0].append(document.createElement("br"));
+		mainDiv[0].append(button);
+
+	}
+
+	var family = {
+	};
+
+	function addToObject() {
+		var parentArray = document.getElementsByClassName('parents');
+		var childrenArray = document.getElementsByClassName('childrens');
+		var pairLength = parentArray.length;
+		for (let i = 0; i < pairLength; i++) {
+			var temp = family[parentArray[i].value];
+			if (temp) {
+				family[parentArray[i].value].push(childrenArray[i].value);
+			} else {
+				family[parentArray[i].value] = [ childrenArray[i].value ];
+			}
+		}
+	}
+
+	function getGrandChildrens() {
+		var name = document.getElementById('fatherName').value;
+		var count = 0;
+		var array = [];
+		var grandChild = [];
+		var flag = false;
+		
+		array = family[name];
+		
+		if (array) {
+
+			var length = array.length;
+			for (let i = 0; i < length; i++) {
+				if (Array.isArray(family[array[i]])) {
+					count = count + family[array[i]].length;
+					grandChild.push(family[array[i]]);
+				}
+			}
+			var outputDiv = document.getElementsByClassName("output");
+			document.getElementById('message').innerHTML = "GrandChildren's are ";
+			document.getElementById('count').innerHTML = count;
+			for ( let i in grandChild) {
+				var para = document.createElement("p");
+				para.innerHTML = grandChild[i];
+				outputDiv[0].append(para);
+			}
+		} else {
+			document.getElementById('message').innerHTML = "You don't have grandChild";
+			document.getElementById('count').innerHTML = "";
+		}
+	}
+</script>
+<style type="text/css">
+body {
+	padding: 100px;
+	margin: 0px;
+}
+
+body div {
+	padding: 20px;
+}
+
+.main input {
+	margin: 0px 20px;
+}
+
+.button {
+	height: 20px;
+	width: 40px;
+}
+</style>
+</head>
+<body>
+
+	<div class="main">
+		<label>Number of Pairs</label> <input type="number" id="numberOfPairs">
+		<input type="submit" onclick="createFields()" value="Go">
+	</div>
+	<div class="grand">
+		<label>GrandFather Name</label><input type="text" id="fatherName">
+		<input type="submit" onclick="getGrandChildrens()" value="Serach">
+		<div class="output">
+			<p id="count"></p>
+			<p id="message"></p>
+		</div>
+	</div>
+</body>
+</html>

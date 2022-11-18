@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Testing</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<div> 
+		<input type="button" value="submit" name="loginButton" onclick="connectToServlet()">
+		<p id='siva'></p>
+	</div>
+	<script>
+		function connectToServlet(){
+			$.ajax({
+				url:'../ServletNew',
+				type:'POST',
+				data:{name:'siva'},
+				success: function(test){
+					$('#siva').text(test);
+				},
+				error: function(){
+					alert('error');
+				}
+			});
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Task 1</title>
+
+</head>
+<body>
+	<script>
+		function grandChildren() {
+			var name = document.getElementById('fatherName').value;
+			var map = [ {
+				parent : 'Ram',
+				child : 'Ravi'
+			}, {
+				parent : 'Ravi',
+				child : 'Siva'
+			}, {
+				parent : 'Siva',
+				child : 'Sam'
+			}, {
+				parent : 'Ravi',
+				child : 'Rajesh'
+			}, {
+				parent : 'Rajesh',
+				child : 'Tom'
+			}, {
+				parent : 'Tom',
+				child : 'Jerry'
+			}, {
+				parent : 'Ram',
+				child : 'Sita'
+			}, {
+				parent : 'Sita',
+				child : 'Sethu'
+			}
+
+			];
+			
+			var child = [];
+			var grandChild = [];
+			
+
+			for ( let i in map) {
+				if (name === map[i].parent) {
+					child.push(map[i].child);
+				}
+			}
+
+			for ( let i in map) {
+				for ( let j in child) {
+					if (map[i].parent === child[j]) {
+						grandChild.push(map[i].child);
+					}
+				}
+			}
+			var count=grandChild.length;
+			if(count){
+				document.getElementById('message').innerHTML="GrandChildren's are"+grandChild;
+				document.getElementById('count').innerHTML=count;
+			}
+			else{
+				document.getElementById('message').innerHTML="No GrandChildren";
+				document.getElementById('count').innerHTML="";
+			}
+		}
+		
+	</script>
+	<div>
+		<label>Name:</label> <input type="text" id="fatherName">
+		<button onclick=grandChildren()>FIND</button>
+	</div>
+	<div>
+	<p id="count"></p>
+	<p id="message"></p>
+	</div>
+</body>
+</html>
